@@ -19,5 +19,5 @@ Route::get('/', function () {
 });
 Route::get('/login', array(LoginController::class ,'showLogin'))->name('show.login');
 Route::post('/login', [LoginController::class ,'login'])->name('user.login');
-Route::get('/blog', [\App\Http\Controllers\BlogController::class ,'showBlog'])->name('show.blog');
+Route::get('/blog', [\App\Http\Controllers\BlogController::class ,'showBlog'])->name('show.blog')->middleware('CheckLogin');
 Route::get('/logout', [\App\Http\Controllers\LogoutController::class,'logout'])->name('user.logout');
